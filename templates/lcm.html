@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LCM Finder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <a class="navbar-brand" href="{% url 'index' %}">Assingnment</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'lcm'%}">Find LCM</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'gcd'%}">Find GCF</a>
+      </li>
+      </ul>
+  </div>
+</nav>
+    <div class="container">
+<div class="card c1">
+    <div class="card-header">
+      <h1 class="h1">LCM Calculator - LCM of two Numbers Calculator</h1>
+    </div>
+    <div class="card-body">
+        <p>The full form of LCM is Least Common Multiple and also noted as Lowest Common Multiple (LCM) or Least Common Divisor (LCD). LCM is the smallest positive integer that is equally divisible by two integers a and b. It is denoted as LCM(a,b). For example, if you take integer a=8 and b=12, the LCM(a,b) i.e., LCM(8,12)=24.</p>
+    </div>
+</div><br>
+<h3 text-align-center>Find LCM Here </h3><br>
+    <form method="POST" action="{% url 'lcm' %}">
+      {% csrf_token %}
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Username</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><strong>LCM of: </strong></div>
+        </div>
+        <input type="number" min="1" max="99999" name="field1" id="number1" placeholder=" value one" required=""> <div class="input-group-text">and</div>
+        <input type="number" min="1" max="99999" name="field2" id="number2" placeholder="value two" required="">
+      </div>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-warning mb-2">Calculate</button>
+    </div><br><br>
+  </div>
+</form><br>
+<h4>Instruction</h4><br>
+<p>Dont use (,) Value:- 5,000 , 34,5 #invalid</p>
+<p>Value Minimum Range = 1</p>
+<p>Value Maximum Range = 99999</p>
+
+</div>
+  </body>
+</html>
