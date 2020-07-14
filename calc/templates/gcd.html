@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<br><br><br>
+<div class="container">
+<div class="card c1">
+  <div class="card-header">
+    <h1>Greatest Common Factor Calculator</h1>
+  </div>
+  <div class="card-body">
+      <p>Calculate the <strong>greatest common factor (GCF)</strong> or greatest common divisor (gcd). On the GCF calculalation page you can learn how to calculate GCF step by step.</p>
+  </div>
+</div><br>
+<h3>Find GCF Here </h3><br>
+  <form method="POST" action="{% url 'gcd' %}" class="text-center">
+    {% csrf_token %}
+<div class="form-row align-items-center">
+  <div class="col-auto">
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text"><strong>GCF of: </strong></div>
+      </div>
+      <input type="number" min="1" max="99999" name="field1" id="number1" placeholder=" value one" required=""> <div class="input-group-text">and</div>
+      <input type="number" min="1" max="99999" name="field2" id="number2" placeholder="value two" required="">
+    </div>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-warning mb-2">Calculate</button>
+  </div><br><br>
+</div>
+</form><br>
+<h4>Instruction</h4><br>
+<p>Dont use (,) Value:- 5,000 , 34,5 #invalid</p>
+<p>Value Minimum Range = 1</p>
+<p>Value Maximum Range = 99999</p>
+</div>
+{% endblock %}

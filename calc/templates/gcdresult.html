@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br><br>
+<div class="container"><br>
+<h1 class="text-center">:- Greatest Common Factor (GCM) of <strong>{{x}}</strong> and <strong>{{y}} -:</strong></h1><br>
+<div class="card bg-light"><br>
+<div class="card-header">
+<h3 class="text-center"><strong>GCF({{x}},{{y}}) = {{gcd}}</strong></h3>
+</div><br>
+</div>
+<br>
+<h5 class="card-header">We will now calculate the prime factors of (<strong>{{x}} {{y}}</strong>) , than find the greatest common factor (greatest common divisor (gcd) of the numbers by matching the biggest common factor of {{x}} and {{y}}.</h5><br>
+<form method="POST" action="{% url 'gcd' %}" class="text-center">
+  {% csrf_token %}
+<div class="form-row align-items-center">
+<div class="col-auto">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><strong>GCF of: </strong></div>
+    </div>
+    <input type="number" min="1" max="99999" name="field1" id="number1" placeholder=" value one" required=""> <div class="input-group-text">and</div>
+    <input type="number" min="1" max="99999" name="field2" id="number2" placeholder="value two" required="">
+  </div>
+</div>
+<div class="col-auto">
+  <button type="submit" class="btn btn-warning mb-2">Calculate</button>
+</div><br><br>
+</div>
+</form><br>
+<h3 class="card-header bg-light">Prime factors of {{x}} are {{primex}}:-</h3><br><hr>
+<h5>{{x}} in Factor Form</h5>
+{%  for key, value in primex_frequency.items %}
+<h4>{{key}} <sup>{{value}}</sup></h4>
+{% endfor %}
+<hr>
+<h3> Prime Factor of <strong>{{y}} is {{primey}}</strong></h3>
+<h5>{{y}} in Factor Form</h5>
+{%  for key, value in primey_frequency.items %}
+<h4>{{key}} <sup>{{value}}</sup></h4>
+{% endfor %}
+<br>
+
+</div>
+{% endblock %}

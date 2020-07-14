@@ -1,3 +1,4 @@
+# find gcd 
 import sys
 def findGCD(x, y):
    while(y):

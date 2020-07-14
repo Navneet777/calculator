@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br><br>
+<div class="container">
+
+<h2 class="text-center ">LCM and GCF Calculator</h2><br><hr>
+<p>Welcome to LCMGCF Finder simple math calculator tool. You can calculate GCF known as <strong>greatest common factor</strong>
+or greatest common divisor (gcd) and LCM known as <strong>least common multiple</strong> or lowest common denominator (lcd).
+Gcf and lcm calculators helps you to learn how to find GCF and LCM step by step.Please select a calculator below to start to calculate gcf or lcm.</p><br><hr>
+<h2 class="text-center"><a href="{% url 'gcd' %}" title="GCF Calculator">Greatest Common Factor Calculator</a></h2>
+<p class="text-center">Calculate the greatest common factor of two positive integer numbers.</p><hr><br>
+<h2 class="text-center"><a href="{% url 'lcm' %}" title="LCM Calculator">Least Common Multiple Calculator</a></h2>
+<p class="text-center">Calculate the least common multiple of two positive integer numbers.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br><br>
+<div class="container"><br>
+<h1 class="text-center">:- Least Common Factor (LCM) of <strong>{{x}}</strong> and <strong>{{y}} -:</strong></h1><br>
+<div class="card bg-light"><br>
+<div class="card-header">
+<h3 class="text-center"><strong>LCM({{x}},{{y}}) = {{lcm}}</strong></h3>
+</div><br>
+</div>
+<br>
+<form method="POST" action="{% url 'lcm' %}" class="text-center">
+  {% csrf_token %}
+<div class="form-row align-items-center">
+<div class="col-auto">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><strong>LCM of: </strong></div>
+    </div>
+    <input type="number" min="1" max="99999" name="field1" id="number1" placeholder=" value one" required=""> <div class="input-group-text">and</div>
+    <input type="number" min="1" max="99999" name="field2" id="number2" placeholder="value two" required="">
+  </div>
+</div>
+<div class="col-auto">
+  <button type="submit" class="btn btn-warning mb-2">Calculate</button>
+</div><br><br>
+</div>
+</form><br>
+<h3 class=" card-header text-center bg-light">Least Common Multiple (LCM) of <strong>({{x}}</strong>,<strong>{{y}})</strong> with GCF Formula</h3>
+<br>
+<h4>The formula of LCM is :- </h4><hr><strong><h3 class="text-center bg-warning">LCM(a,b) = ( a × b) / GCF(a,b)</h3> </strong><br>
+<h6>We need to calculate <a href="{% url 'gcd' %}">greatest common factor {{x}} and {{y}}</a>, than apply into the LCM equation.</h6>
+<h5 class="card-header">GCF({{x}},{{y}}) = {{gcd}}<br><hr>
+LCM({{x}},{{y}}) = ( {{x}} × {{y}}) / {{gcd}}<br><hr>
+LCM({{x}},{{y}}) = {{mul}} / {{gcd}}<br><hr>
+LCM({{x}},{{y}}) = {{lcm}}</h5><hr>
+<h3 class=" card-header text-center bg-light">Least Common Multiple (LCM) of <strong>({{x}}</strong>,<strong>{{y}})</strong> with Primes</h3><hr>
+<h6>Least common multiple can be found by multiplying the highest exponent prime factors of <strong>({{x}},{{y}})</strong>. First we will calculate the prime factors of {{x}} and {{y}}.</h6><br>
+<h4> Prime Factorization of <strong>{{x}}</strong></h4><br>
+<h5 class="card-header bg-light">Prime factors of {{x}} are {{primex}}:-</h5><br><hr>
+<h3>{{x}} in Factor Form</h3>
+{%  for key, value in primex_frequency.items %}
+<h4>{{key}} <sup>{{value}}</sup></h4>
+{% endfor %}
+<br><hr>
+
+<br><hr>
+<h4> Prime Factorization of <strong>{{y}}</strong></h4><br>
+<h5 class="card-header bg-light">Prime factors of {{y}} are {{primey}}:-</h5><br><hr>
+<h3>{{y}} in Factor Form</h3>
+{%  for key, value in primey_frequency.items %}
+<h4>{{key}} <sup>{{value}}</sup></h4>
+{% endfor %}
+<br><hr>
+<h3>{{primex_frequency}}</h3>
+<h4 class="card-header bg-light">Now multiplying the highest exponent prime factors to calculate the LCM of<strong>({{x}},{{y}})</strong>.</h4><br>
+<br>
+
+</div>
+{% endblock %}

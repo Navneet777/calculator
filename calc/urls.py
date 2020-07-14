@@ -4,4 +4,5 @@ urlpatterns = [
 path('',views.index,name="index"),
 path('lcm/',views.lcm,name="lcm"),
 path('gcd/',views.gcd,name="gcd"),
+path('result/',views.lcm,name="result"),
 ]
